@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="408.0" prefWidth="638.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="chatroom.FXMLDocumentController">
+   <children>
+      <TextArea fx:id="txtChat" layoutX="113.0" layoutY="33.0" prefHeight="324.0" prefWidth="369.0" />
+      <TextField fx:id="txtMesagge" layoutX="113.0" layoutY="363.0" prefHeight="31.0" prefWidth="191.0" />
+      <Button layoutX="313.0" layoutY="366.0" mnemonicParsing="false" onAction="#EnviarMsj" prefHeight="25.0" prefWidth="171.0" text="Enviar" />
+      <ComboBox fx:id="comboChatUser" layoutX="113.0" layoutY="2.0" prefWidth="150.0" promptText="Salas del Usuario" />
+      <ListView fx:id="listUsers" fixedCellSize="0.0" layoutY="33.0" prefHeight="324.0" prefWidth="113.0" />
+      <ListView fx:id="listChatRoom" layoutX="482.0" layoutY="33.0" onMouseClicked="#UnirseSala" prefHeight="324.0" prefWidth="171.0" />
+      <Label layoutX="26.0" layoutY="6.0" text="Usuarios" />
+      <Label layoutX="554.0" layoutY="6.0" text="Salas" />
+      <Button layoutX="499.0" layoutY="366.0" mnemonicParsing="false" onAction="#CrearSala" prefHeight="25.0" prefWidth="143.0" text="Crear Sala" />
+   </children>
+</AnchorPane>
