@@ -79,7 +79,7 @@ public class ServerChatRoom {
                                     switch(msg[2]){
                                         case "salas":
                                             for (int i = 0; i <salas.size(); i++) {
-                                                sls+=salas.get(i).nameRoom+":";
+                                                sls+=i+"#"+salas.get(i).nameRoom+":";
                                             }
                                             out.writeUTF(sls);
                                             
@@ -94,7 +94,11 @@ public class ServerChatRoom {
                                         break;
                                         
                                         case "messages":
-                                            out.writeUTF(conversation);
+                                            int i = Integer.parseInt(msg[3]);
+                                            if(i != -1){
+                                                out.writeUTF(salas.get(i).getConversation());
+                                            }
+                                            
                                             break;
                                         
                                     }
@@ -115,7 +119,7 @@ public class ServerChatRoom {
                                     
                                     String sl="";
                                     for (int i = 0; i <salas.size(); i++) {
-                                       sl+=salas.get(i).nameRoom+":";
+                                       sl+=i+"#"+salas.get(i).nameRoom+":";
                                     }
                                     out.writeUTF(sl);
                                     for (int i = 0; i < escritorio.size(); i++) {
@@ -125,9 +129,13 @@ public class ServerChatRoom {
                                     
                                     break;
                                 case "Msg":
-                                    instring = msg[2] +"> " +msg[3];
-                                    conversation = conversation +"<br>"+instring;
-                                    out.writeUTF(conversation);
+                                    int index = Integer.parseInt(msg[4]);
+                                    if(index !=-1){
+                                        instring = msg[2] +"> " +msg[3];
+                                        salas.get(index).setConversation(instring);
+                                        out.writeUTF(salas.get(index).getConversation());
+                                    }
+                                    
                                     break;
                                  
                             }

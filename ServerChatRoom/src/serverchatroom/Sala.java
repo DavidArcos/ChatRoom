@@ -36,7 +36,7 @@ public class Sala{
         return conversation;
     }
     public void setConversation(String con){
-        conversation+="\n"+con;
+        conversation+="<br>"+con;
     }
     public void sendMesagge(String msj){
     }

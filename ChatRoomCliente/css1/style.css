@@ -42,6 +42,11 @@ body {
   background: #04B4AE;
 }
 
+.list li:hover{
+  color: black;
+  cursor: pointer;
+}
+
 .user{
   width: 260px;
   float: left;
