@@ -32,6 +32,7 @@ public class ServerChatRoom {
      */
     public static void main(String[] args) {
         try {
+            String conversation="", instring="";
             String[] cmd = {"createRoom","sendMesagge"};
             ArrayList<Sala> salas = new ArrayList<>();
             LinkedList<Socket> escritorio = new LinkedList<>();
@@ -91,6 +92,11 @@ public class ServerChatRoom {
                                             out.writeUTF(sls);
                                             
                                         break;
+                                        
+                                        case "messages":
+                                            out.writeUTF(conversation);
+                                            break;
+                                        
                                     }
                                     
                                     
@@ -118,6 +124,12 @@ public class ServerChatRoom {
                                     }
                                     
                                     break;
+                                case "Msg":
+                                    instring = msg[2] +"> " +msg[3];
+                                    conversation = conversation +"<br>"+instring;
+                                    out.writeUTF(conversation);
+                                    break;
+                                 
                             }
                         }else{
                             System.out.println("Conexion desde el Escritorio");

@@ -35,6 +35,8 @@ function refreshType (campo) {
 }
 
 function refresh () {
+  var mensajes = "messages"
+  refreshType(mensajes);
   var salas = "salas";
   refreshType(salas);
   var usuarios = "usuarios"
