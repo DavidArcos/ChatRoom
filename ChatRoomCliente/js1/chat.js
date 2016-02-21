@@ -1,3 +1,4 @@
+var id_conversation = -1;
 function send_message() {
     var valor = document.getElementById("message-to-send").value;
 
@@ -12,7 +13,7 @@ function send_message() {
           document.getElementById("messages").innerHTML=xmlhttp.responseText;
       }
     };
-    xmlhttp.open("GET","ajax.jsp?value="+valor+"&user="+user,true);
+    xmlhttp.open("GET","ajax.jsp?value="+valor+"&user="+user+"&room="+id_conversation,true);
     xmlhttp.send();
 
 }
@@ -30,17 +31,21 @@ function refreshType (campo) {
           document.getElementById(campo).innerHTML=xmlhttp.responseText;
       }
     };
-    xmlhttp.open("GET","ajax.jsp?value="+valor+"&user="+user+"&type="+campo,true);
+    xmlhttp.open("GET","ajax.jsp?value="+valor+"&user="+user+"&type="+campo+"&room="+id_conversation,true);
     xmlhttp.send();
 }
 
 function refresh () {
-  var mensajes = "messages"
-  refreshType(mensajes);
-  var salas = "salas";
-  refreshType(salas);
-  var usuarios = "usuarios"
-  refreshType(usuarios);
+    var mensajes = "messages"
+    refreshType(mensajes);
+    var salas = "salas";
+    refreshType(salas);
+    var usuarios = "usuarios"
+    refreshType(usuarios);
+}
+
+function conversation(id) {
+  id_conversation = parseInt(id);
 }
 
 function createRoom () {

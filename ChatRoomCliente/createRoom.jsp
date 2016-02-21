@@ -16,7 +16,8 @@
                     gText=inSocket.readUTF();
                     String[] receive = gText.split(":");
                     for(int i = 0; i<receive.length;i++){
-                        out.println("<li>"+receive[i] + "</li>");
+                        String[] data = receive[i].split("#");
+                        out.println("<li id='"+data[0]+"' onclick ='conversation(this.id)'>"+data[1] + "</li>");
                     }
                     
                     socket.close();
