@@ -58,7 +58,8 @@
       </div> <!-- end chat-header -->
       
       <div class="chat-history">
-        <ul id = "messages">  
+        <ul id = "messages">
+          
         </ul>
         
       </div> <!-- end chat-history -->

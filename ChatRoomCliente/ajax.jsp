@@ -7,7 +7,7 @@
                     texto=request.getParameter("value");
                     String user = request.getParameter("user");
                     String type = request.getParameter("type");
-                    Socket socket = new Socket("ARCOS-PC", 9999);
+                    Socket socket = new Socket("127.0.0.1", 9999);
                     DataInputStream inSocket = new DataInputStream(socket.getInputStream());
                     DataOutputStream outSocket = new DataOutputStream(socket.getOutputStream());
                     String str ="";
